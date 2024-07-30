@@ -1,0 +1,1818 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
+
+.feed-page {
+    width: 100vw;
+    min-width: 930px;
+    background-color: #fff;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 10px;
+    color: #898989;
+}
+
+.feed-container {
+    width: 920px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 0;
+}
+
+.feed-contents {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 24px;
+}
+
+
+.feed-top {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.feed-header {
+    align-self: stretch;
+    height: 40.1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.follow-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: flex-start;
+    gap: 14px;
+}
+
+.feed-follow-profile-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.follow-profile-image:hover {
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.follower-more-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #f2f2f2;
+    width: 45px;
+    height: 45.1px;
+    padding: 4px;
+}
+
+.follower-more-button:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.user-nickname {
+    color: #000;
+    font-weight: 900;
+}
+
+.nickname {
+    color: #000;
+}
+
+.feed-bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 13px;
+    color: #000;
+}
+
+.main-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+    width: 388px;
+}
+
+.profile-box {
+    width: 100%;
+    height: 55.2px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    font-size: 16px;
+}
+
+.user-profile-text {
+    width: 235px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 7px;
+}
+
+.user-profile-text:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.07);
+}
+
+.profile-name-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.self-introduction {
+    display: inline-block;
+    align-self: stretch;
+    font-size: 13px;
+    font-weight: 400;
+    color: #7e7e7e;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.calendar-title-box {
+    width: 100%;
+    height: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.calendar-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 7px;
+}
+
+.calendar-date {
+    font-size: 15px;
+}
+
+.calendar-counters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.counter-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3px;
+}
+
+.counter-box:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.month-selector {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.week-days {
+    width: 364px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0px 8px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.calendar-date {
+    width: 364px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px 28px;
+    text-align: center;
+    font-size: 13px;
+    color: #000;
+}
+
+.date-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+}
+
+.date-item:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.donut-fill {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: conic-gradient(hsl(236, 100%, 73%) 0% 20%, transparent 0.01%);
+    transition: background 1s ease;
+
+    /* 70% 채움 */
+}
+
+.donut-chart {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #e9e9e9;
+    /* 도넛의 배경 색상 */
+}
+
+.donut-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    /* 도넛 중앙의 크기 */
+    height: 12px;
+    background-color: #fff;
+    /* 도넛 중앙의 색상 */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/*   ########################################################################################################################################   */
+
+
+
+.todo-container {
+    display: flex;
+    width: 470px;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-end;
+    gap: 25px;
+    text-align: center;
+    font-size: 15px;
+    height: 660px;
+    overflow: scroll;
+    scrollbar-width: 0px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+    /* 스크롤바 숨기기 */
+}
+
+.todo-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.todo-title {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-badge {
+    border-radius: 50px;
+    background-color: #f2f2f2;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px 12px;
+    gap: 7px;
+}
+
+.title-badge:hover {
+    background-color: rgba(0, 0, 0, 0.07);
+    cursor: pointer;
+}
+
+.title-name {
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 8px;
+    font-size: 14px;
+    opacity: 1;
+    /* 초기에는 보이도록 설정 */
+    overflow: hidden;
+    transition: opacity 0.5s ease, height 0.5s ease;
+}
+
+.coming-todo {
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.todo-item {
+    /* align-self: stretch; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 32px;
+    /* 초기 높이 설정 */
+    color: #3f3f3f;
+}
+
+.todo-bundle {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.todo-check-box:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.todo-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    /* 남아있 부모요소의 width값을 다 가져간다. */
+    flex-grow: 1;
+    align-items: start;
+    padding: 3px 3px;
+}
+
+.todo-detail:hover {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.todo-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+}
+
+.todo-input {
+    text-align: left;
+    width: 100%;
+    padding-bottom: 2px;
+    border: none;
+    border-bottom: 2px solid red;
+    outline: none;
+    box-shadow: none;
+    background-color: initial;
+}
+
+.todo-alarm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 8px;
+    gap: 2px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.total-todo-more-buttom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 24px;
+    padding: 5px 9px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    background-color: #e9e9e9;
+}
+
+.total-todo-more-buttom:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+/*   ########################################################################################################################################   */
+
+
+.feed-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    height: 70px;
+    gap: 98px;
+    padding: 20px 0px 40px 0;
+    box-sizing: border-box;
+    font-size: 12px;
+    background-color: #fff;
+    color: #000;
+}
+
+.url-button.selected {
+    opacity: 1 !important;
+}
+
+.url-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    opacity: 0.4;
+}
+
+.url-button:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+/*   ########################################################################################################################################   */
+.feed-more {
+    position: relative;
+}
+
+.feed-more-icon:hover {
+    cursor: pointer;
+    opacity: 0.3;
+}
+
+.feed-more-drop-down {
+    position: absolute;
+    z-index: 1;
+    top: 40px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 160px;
+    height: 200px;
+    margin: 0 !important;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 15px;
+    overflow: hidden;
+    opacity: 1;
+    color: #191919;
+    background-color: #fff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+    transition: opacity 0.5s ease, height 0.5s ease;
+}
+
+.drop-down-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    padding: 16px 10px;
+}
+
+.drop-down-menu:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.todo-toggle:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.black-width-menu:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.black-medium-plus:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.sc-7 {
+    scale: 0.7;
+}
+
+
+
+
+
+
+
+
+
+
+/*   ########################################################################################################################################   */
+/* 여기 아래서부터는 모달창 css */
+
+
+
+
+
+
+.todo-item-name {
+    font-weight: 600;
+    display: inline-block;
+}
+
+.todo-item-title {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+.todo-item-edite-icon {
+    width: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 7px;
+}
+
+.todo-item-edit-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 80px;
+    gap: 8px;
+    padding: 18px 86px;
+    border-radius: 7px;
+    box-sizing: border-box;
+    background-color: #f3f3f3;
+}
+
+.todo-item-edit-button:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.todo-item-delete-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 80px;
+    padding: 17px 86px;
+    gap: 8px;
+    border-radius: 7px;
+    background-color: #f3f3f3;
+    box-sizing: border-box;
+}
+
+.todo-item-delete-button:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.todo-item-select-buttons {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.todo-item-menu {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 12px;
+    gap: 12px;
+}
+
+.todo-item-menu:hover {
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.todo-item-data {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+    font-size: 15px;
+}
+
+.todo-item-menus {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 450px;
+    gap: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #575757;
+}
+
+.todo-item-modal {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: calc(50vw - 250px);
+    border-radius: 15px 15px 0px 0px;
+    background-color: #fff;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 25px 20px;
+    gap: 25px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.todo-item-alarm {
+    display: none;
+}
+
+.todo-item-image {
+    display: none;
+}
+
+.todo-item-today-again {
+    display: none;
+}
+
+.todo-item-tomorrow-again {
+    display: none;
+}
+
+.todo-item-anotherDay-again {
+    display: none;
+}
+
+.todo-item-today-move {
+    display: none;
+}
+
+.todo-item-tomorrow-move {
+    display: none;
+}
+
+
+/* 임시설정 */
+.feed-modal {
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    /* display: flex; */
+    display: none;
+    width: 100%;
+    height: 100vh;
+
+    /* opacity: 1; */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.todo-memo-name {
+    position: relative;
+    font-weight: 500;
+}
+
+.todo-memo-title {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.todo-memo-textarea {
+    width: 450px;
+    border-radius: 5px;
+    background-color: #fffce1;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 15px;
+    font-size: 15px;
+    line-height: 140%;
+    color: black;
+    opacity: 1;
+
+    border: none;
+    outline: none;
+    resize: none;
+    /* 사용자가 크기 조절하지 못하도록 설정 */
+    overflow-wrap: break-word;
+    /* 단어 단위로 줄바꿈 설정 */
+    white-space: pre-wrap;
+    /* 연속 공백과 줄바꿈을 유지 */
+}
+
+.meno-complete-button {
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 188px;
+}
+
+.todo-memo-modal {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: calc(50vw - 250px);
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+    padding: 10px 25px;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 15px 15px 0px 0px;
+    font-size: 14px;
+    text-align: center;
+    color: #000;
+    background-color: #fff;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+
+/* 
+
+d todo-memo-modal은 원래 위치에 잘 있고 height값은 따로 가지고 있지 않은 상태여서 자삭요소의 height값을 공유하고 있어
+1 그리고 hidden-modal은 opacity의 0, height 0, padding 0, transform: translateY(100%)이다.
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*   ########################################################################################################################################   */
+/* 여기서부터는 알람 모달 */
+.todo-alarm-title {
+    width: 450px;
+    height: 47.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.selected-period {
+    color: white !important;
+    font-weight: 500 !important;
+    background-color: #000 !important;
+}
+
+.period-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 185px;
+    height: 35px;
+    padding: 3px 40px;
+    border-radius: 7px;
+    box-sizing: border-box;
+    font-weight: 400;
+    color: #292929;
+    background-color: #ECF0F4;
+}
+
+.period-item:hover {
+    cursor: pointer;
+    background-color: rgb(222, 226, 236);
+}
+
+.todo-period-selector {
+    width: 380px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+}
+
+
+.todo-period-box {
+    align-self: stretch;
+    height: 47px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 450;
+    font-size: 13px;
+    font-family: Pretendard;
+}
+
+.selected-hour {
+    font-weight: 600 !important;
+    color: #fff !important;
+    background-color: #000 !important;
+}
+
+.selected-minute {
+    font-weight: 600 !important;
+    color: #fff !important;
+    background-color: #000 !important;
+}
+
+.hour-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 36px;
+    padding: 3px 0px;
+    border-radius: 7px;
+    box-sizing: border-box;
+    color: #575757;
+    background-color: #ECF0F4;
+}
+
+.hour-item:hover {
+    cursor: pointer;
+    background-color: rgb(222, 226, 236);
+}
+
+.minute-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 36px;
+    padding: 3px 0px;
+    border-radius: 7px;
+    box-sizing: border-box;
+    color: #575757;
+    background-color: #ECF0F4;
+}
+
+.minute-item:hover {
+    cursor: pointer;
+    background-color: rgb(222, 226, 236);
+}
+
+.todo-hour-selector {
+    width: 380px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 8px;
+    text-align: center;
+}
+
+.todo-minute-selector {
+    width: 380px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 8px;
+    text-align: center;
+}
+
+.todo-hour-box {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.todo-minute-box {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.todo-alarm-text {
+    padding: 5px 0;
+}
+
+.todo-alarm-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+}
+
+.todo-alarm-delete-button {
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: red;
+}
+.todo-alarm-delete-button:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.todo-alarm-ok-button {
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+
+.todo-alarm-ok-button:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* 임시설정 */
+.todo-alarm-modal {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: calc(50vw - 250px);
+    display: none;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+    padding: 10px 25px;
+    gap: 24px;
+    box-sizing: border-box;
+    border-radius: 15px 15px 0px 0px;
+    font-size: 14px;
+    text-align: center;
+    color: #000;
+    background-color: #fff;
+    opacity: 0;
+    /* opacity: 1; */
+    transform: translateY(100%);
+    /* transform: translateY(0); */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.todo-calendar-title-text {
+    width: 151px;
+    position: relative;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.todo-calendar-title {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.selected-date {
+    position: relative;
+    letter-spacing: 0.05em;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.pre-button-icon {
+    width: 14px;
+    position: relative;
+    height: 14px;
+    object-fit: contain;
+}
+
+.next-button-icon {
+    width: 14px;
+    position: relative;
+    height: 14px;
+    object-fit: cover;
+}
+
+.todo-month-select-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+}
+
+.black-bold-left-arrow:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.black-bold-right-arrow:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.black-left-arrow:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.black-right-arrow:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.todo-calendar-select-bar {
+    width: 450px;
+    height: 16.1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 15px;
+}
+
+.sun {
+    color: #ff4242 !important;
+}
+
+.today-tema {
+    background: #EAEAEA !important;
+}
+
+.selected-day-tema {
+    font-weight: 600;
+    color: white;
+    background: #000 !important;
+}
+
+.week-days-item {
+    width: 30px;
+    position: relative;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+.todo-calendar-week-days {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 18px;
+}
+
+.empty {
+    width: 32px;
+    position: relative;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    font-family: Inter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+.today-item {
+    width: 32px;
+    border-radius: 7px;
+    background-color: #eaeaea;
+    height: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-date-item {
+    width: 32px;
+    position: relative;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    letter-spacing: -0.02em;
+    border-radius: 7px;
+}
+
+.todo-date-item:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.todo-selected-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    background-color: #000;
+}
+
+.todo-calendar-days {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 416px;
+    gap: 12px 32px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #000;
+}
+
+.todo-calendar-contents {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 290px;
+    gap: 8px;
+    font-size: 12px;
+    color: #878787;
+    font-family: Inter;
+}
+
+.todo-calendar-ok-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    padding: 10px 188px;
+    font-weight: 500;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
+
+.todo-calendar-modal {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: calc(50vw - 250px);
+    display: none;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+    padding: 10px 25px;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 15px 15px 0px 0px;
+    font-size: 14px;
+    text-align: center;
+    color: #000;
+    background-color: #fff;
+    opacity: 0;
+    /* opacity: 1; */
+    transform: translateY(100%);
+    /* transform: translateY(0); */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.total-todo-modal {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: calc(50vw - 250px);
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+    padding: 10px 25px 20px;
+    opacity: 0;
+    gap: 20px;
+    font-size: 14.5px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 15px 15px 0px 0px;
+    color: #000;
+    background-color: #fff;
+    transform: translateY(100%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.total-todo-title {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 13px;
+}
+
+.total-todo-contents {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 23px;
+    font-size: 15px;
+    color: #575757;
+}
+
+.total-todo-items {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.total-todo-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.total-todo-menu:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.total-todo-menu-label {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.total-todo-selected-buttons {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: #000;
+}
+
+.total-todo-selected-ok {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 44px;
+    padding: 17px 86px;
+    border-radius: 7px;
+    box-sizing: border-box;
+    background-color: #f3f3f3;
+}
+
+.total-todo-selected-ok:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.total-todo-selected-cancel {
+    width: 220px;
+    border-radius: 7px;
+    background-color: #f3f3f3;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 86px;
+    box-sizing: border-box;
+}
+
+.total-todo-selected-cancel:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.total-todo-tomorrow-move,
+.total-todo-anotherDay-move,
+.total-todo-current-delete {
+    display: none;
+}
+
+.todo-title {
+    cursor: default;
+}
+.todo-list {
+    list-style-type: none;
+}
+.sortable-placeholder {
+    border: 1px dashed #ccc;
+    background-color: #fafafa;
+    height: 32px; 
+    
+}
+
+/* .todo-box {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+.todo-title {
+    background-color: #e9e9f3;
+    padding: 10px;
+    cursor: default;
+}
+.todo-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.todo-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-bottom: 10px;
+    cursor: move; 
+    transition: transform 0.2s ease;
+}
+.sortable-placeholder {
+    border: 1px dashed #ccc;
+    background-color: #fafafa;
+    visibility: visible !important;
+    height: 40px;
+} */
+
+
+/* */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.todo-delete-cancel,
+.todo-delete-ok {
+    width: 125px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 53px;
+    box-sizing: border-box;
+}
+
+.todo-delete-cancel:hover,
+.todo-delete-ok:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.todo-delete-select-buttons {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.todo-delete-modal {
+    z-index: 2;
+    position: absolute;
+    left: calc(50% - 150px);
+    top: calc(50% - 75px);
+
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    height: 150px;
+    gap: 26px;
+    padding: 30px 20px 20px 20px;
+    /* opacity: 1; */
+    opacity: 0;
+    font-size: 13px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #000;
+    background-color: #fff;
+    transition: opacity 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.blue-radio:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.empty-black-circle:hover {
+    cursor: pointer;
+    opacity: 0.2;
+}
+
+
+.hidden {
+    /* 요소의 높이를 0으로 설정하여 공간을 없앰 */
+    opacity: 0;
+    height: 0;
+}
+
+.modal-hidden {
+    opacity: 0;
+}
+
+/* html에서 먼저 클래스를 hidden있는 상태로 존재하고
+js를 통해서 해당 클래스를 제거함으로
+해당 검은 모달창의 기존 css가 opacity를 1로 우선순위 되어지고
+transition으로 0.3초 동안 ease 효과로 부드럽게 진행되고

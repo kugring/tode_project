@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GoalMapper">
+   <resultMap type="com.ezen.backend.VO.GoalVO" id="GoalMap">
+      <id property="todo_title_id" column="todo_title_id"/>
+      <result property="color_id" column="color_id"/>
+      <result property="email" column="email"/>
+      <result property="todo_title" column="todo_title"/>
+      <result property="title_todo_open" column="title_todo_open"/>
+      <result property="title_color" column="title_color"/>   
+   </resultMap>
+   
+   <select id="getAll" resultMap="GoalMap">
+      select * from todo_title;
+   </select>
+</mapper>
