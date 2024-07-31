@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="FollowMapper">
+    <resultMap type="com.ezen.backend.VO.FollowVO" id="FollowMap">
+        <result property="email" column="email"/>
+        <result property="followEmail" column="follow_email"/>
+    </resultMap>
+
+    <select id="getAll" resultMap="FollowMap" parameterType="String">
+        SELECT * FROM follow WHERE email = #{email};
+    </select>
+
+    <select id="getFollower" resultMap="FollowMap" parameterType="String">
+        SELECT DISTINCT f1.email
+        FROM follow f1 LEFT JOIN follow f2
+        ON f1.email = f2.follow_email AND f1.follow_email = f2.email
+        WHERE f2.email IS NULL;
+    </select>
+
+    <select id="getFollowing" resultMap="FollowMap" parameterType="String">
+        SELECT follow_email FROM follow WHERE email = #{email};
+    </select>
+
+    <insert id="insert" parameterType="com.ezen.backend.VO.FollowVO">
+        INSERT INTO follow (email, follow_email) VALUES (#{email}, #{followEmail});
+    </insert>
+</mapper>

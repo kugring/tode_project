@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserMapper">
-	<resultMap type="com.a.ezn.MemberVO" id="userMap">
-		<id property="id" column="id"/>
-		<result property="pw" column="pw"/>
-		<result property="userType" column="user_type"/>
-	</resultMap>
-	
-	<insert id="insert" parameterType="com.ezen.backend.MemberVO">
-		insert into user(id, pw)
-		values(#{id}, #{pw});
-	</insert>
+   <resultMap id="UserMap" type="com.ezen.backend.VO.UserVO">
+      <id property="email" column="email"/>
+      <result property="password" column="password"/>
+      <result property="nickName" column="nick_name"/>
+      <result property="gender" column="gender"/>
+      <result property="phoneNumber" column="phone_number"/>
+      <result property="agreedPersonal" column="agreed_personal"/>
+      <result property="profileImage" column="profile_image"/>
+      <result property="userType" column="user_type"/>
+      <result property="benCount" column="ben_count"/>
+      <result property="selfIntroduction" column="self_introduction"/>
+      <result property="createDate" column="create_date"/>
+      <result property="deleteDate" column="delete_date"/>
+   </resultMap>
+
+   <insert id="insert" parameterType="com.ezen.backend.VO.UserVO">
+      insert into user(email, password, gender, nick_name, phone_number, agreed_personal,user_type, ben_count,create_date) values(#{email}, #{password}, 1, '이젠','1234567', true, 0, 0, now());
+   </insert>
+
+   <select id="emailCheck" parameterType="String" resultType="Integer">
+      select count(*) from user where email = #{email};
+   </select>
+
+   <select id="login" parameterType="com.ezen.backend.VO.UserVO" resultMap="UserMap">
+      select email, user_type from user where email = #{email} and password = #{password};
+   </select>
 </mapper>

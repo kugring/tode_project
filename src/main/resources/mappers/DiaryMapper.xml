@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DiaryMapper">
+<!--    id랑 type이랑 위치가 바꿨습니당-->
+    <resultMap type="com.ezen.backend.VO.DiaryListVO" id="DiaryMap">
+        <id property="diaryId" column="diary_id"/>
+        <result property="imojiId" column="imoji_id"/>
+        <result property="colorId" column="color_id"/>
+        <result property="email" column="email"/>
+        <result property="diaryContent" column="diary_content"/>
+        <result property="diaryOpen" column="diary_open"/>
+        <result property="diaryCreateDate" column="diary_create_date"/>
+        <result property="diaryEditDate" column="diary_edit_date"/>
+    </resultMap>
+
+    <select id="selectList" resultMap="DiaryMap" parameterType="String">
+        select * from diary_list where email = #{email};
+    </select>
+    <!-- 보류-->
+    <insert id="insert" parameterType="com.ezen.backend.VO.DiaryListVO">
+        insert into diary_list (email, diary_content, diary_open, diary_create_date,diary_edit_date) values(#{email}, #{diary_content},0,now(),now());
+    </insert>
+
+
+</mapper>

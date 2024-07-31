@@ -1,8 +1,8 @@
-$(function () {
+﻿$(function () {
 
 
     //              variable: 목표 관련 데이터를 담는 변수               //
-    var goal_id; 
+    var goal_id;
     var goal_color_id;
     var goal_user_email;
     var goal_title_text;
@@ -20,12 +20,13 @@ $(function () {
     var finish_modal = $('.finish-modal')
     var goal_finish_message_modal = $('.goal-finish-message-modal')
     var goal_delete_modal = $('.goal-delete-modal')
+    var goal_plan_complete = $('.goal-plan-complete-btn');
+
 
 
     //              variable: 목표 관련 모달 변수들             //
     var target_open_setting_text;
     var target_color_id;
-    
 
 
     //              variable: 라디오 버튼 관련 변수 모음              //
@@ -35,13 +36,8 @@ $(function () {
     var unselected_icon = 'empty-black-circle icon-24 op-4';
 
 
-
     //              variable: 연타 글릭 방지 코드               //
     let isClickAllowed = true; // 플래그 변수 초기화
-
-
-
-
 
 
     //                                                                              function:  공동 모달 함수 모음 구역                                                                           //
@@ -52,16 +48,19 @@ $(function () {
         modal[0].offsetHeight;
         modal.css('opacity', '1');
     }
+
     function hidden(modal) {
         modal.css('opacity', '0');
         setTimeout(() => {
             modal.css('display', 'none');
         }, 500);
     }
+
     function move_up(modal) {
         show(modal)
         modal.css('transform', 'translateY(0)');
     }
+
     function move_down(modal) {
         modal.css('transform', 'translateY(100%)');
         setTimeout(hidden, 300, modal);
@@ -76,6 +75,7 @@ $(function () {
         move_down(color_modal);
         move_down(open_setting_modal);
     }
+
     //             function : 모달 출현 연타 클릭 방지를 위한 함수              //
     function stop_click() {
         if (!isClickAllowed) return false;
@@ -94,26 +94,31 @@ $(function () {
         show(goal_black_modal);
         move_up(open_setting_modal);
     }
+
     //             function : 목표의 배경 컬러를 모달 출현 함수              //
     function start_goal_color_modal() {
         show(goal_black_modal);
         move_up(color_modal);
     }
+
     //             function : 목표의 종료에 관련한 모달 출현 함수             //
     function start_goal_finish_modal() {
         show(goal_black_modal);
         move_up(finish_modal);
     }
+
     //             function : 목표의 종료에 대한 메세지_모달 출현 함수             //
     function start_goal_finsh_message_modal() {
         move_down(finish_modal);
         setTimeout(show, 300, goal_finish_message_modal)
     }
+
     //             function : 목표의 삭제에 대한 모달 출현 함수             //
     function start_goal_delete_modal() {
         show(goal_black_modal);
         setTimeout(show, 300, goal_delete_modal)
     }
+
     //              function: 라디오 선택 모달에서 메뉴 선택시 selected 적용             //
     function blue_radio_select(menu_item, menu_class) {
         $(menu_class).removeClass('selected');
@@ -134,23 +139,23 @@ $(function () {
     }
 
 
-
-
     //                                                                              function:  페이지 이동에 관한 함수 모음 구역                                                                           //
 
 
     //              function: 목표를 추가 & 수정 하는 페이지로 이동하는 함수             //
-    function goal_plan_page_move(){
+    function goal_plan_page_move() {
         $('.goal-title-page').css('display', 'none')
         $('.goal-plan-page').css('display', 'flex')
     }
+
     //              function: 목표 리스트 페이지로 이동하는 함수             //
-    function goal_list_page_move(){
+    function goal_list_page_move() {
         $('.goal-title-page').css('display', 'flex')
         $('.goal-plan-page').css('display', 'none')
     }
+
     //              function: 목표 아이템의 데이터를 주입하는 코드             //
-    function set_selected_goal_data (goal_badge){
+    function set_selected_goal_data(goal_badge) {
         goal_id = $(goal_badge).find('input[name = "todo-title-id"]').val();
         goal_color_id = $(goal_badge).find('input[name = "color-id"]').val();
         goal_color_code = $(goal_badge).css('color');
@@ -158,8 +163,9 @@ $(function () {
         goal_title_text = $(goal_badge).find('input[name = "todo-title"]').val();
         goal_open_setting = $(goal_badge).find('input[name = "title-todo-open"]').val();
     }
+
     //              function: 목표 아이템의 데이터를 초기화하는 코드             //
-    function reset_selected_goal_data (goal_badge){
+    function reset_selected_goal_data(goal_badge) {
         goal_id = null;
         goal_color_id = null;
         goal_user_email = null;
@@ -175,7 +181,7 @@ $(function () {
 
 
     //              function: 목표 (+)버튼 클릭시 발생할 함수            //
-    function create_goal_plan_element(){
+    function create_goal_plan_element() {
         // 목표의 제목을 넣어준다.
         $('.goal-text-input').val('');
 
@@ -187,7 +193,7 @@ $(function () {
     }
 
     //              function: 목표 아이템의 선택시 플랜 페이지에 데이터를 기입해주는 코드            //
-    function change_goal_plan_element(){
+    function change_goal_plan_element() {
         // 목표의 제목을 넣어준다.
         $('.goal-text-input').val(goal_title_text);
 
@@ -200,30 +206,20 @@ $(function () {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
     //                                                                              function:  공개설정 모달 관련 함수 모음 구역                                                                           //
-    
+
     //              function: 공개설정에서 확인 버튼 클릭시 selected 되어진 메뉴값을 화면에 구현해줌             //
     function set_goal_open_setting_data() {
         let selected_open_setting_menu_text = $('.open-setting-items').find('.selected').find('.text').text();
         console.log(selected_open_setting_menu_text);
         plan_page_open_setting_change(selected_open_setting_menu_text)
     }
+
     //              function: 공개설정에서 확인 버튼 클릭시 selected 되어진 메뉴값을 화면에 구현해줌             //
-    function plan_page_open_setting_change(open_setting_menu){
+    function plan_page_open_setting_change(open_setting_menu) {
         let setting_text = '';
         let setting_icon = '';
-    
+
         if (open_setting_menu == '전체 공개') {
             setting_text = '전체 공개';
             setting_icon = '<div class="black-earth icon-16 op-6"></div>';
@@ -234,7 +230,7 @@ $(function () {
             setting_text = '나만보기';
             setting_icon = '<div class="black-lock icon-16 op-6"></div>';
         }
-    
+
         $('.goal-plan-open-setting-text').text(setting_text);
         $('.goal-plan-open-setting-icon').html(setting_icon);
         // 플랜중인 목표의 공개설정 값을 담음
@@ -242,28 +238,10 @@ $(function () {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //                                                                              function:  색상선택 모달 관련 함수 모음 구역                                                                           //
 
     //              function: 선택되어진 컬러의 id값을 출력하는 함수             //
-    function set_color_id(color_item){
+    function set_color_id(color_item) {
         target_color_id = $(color_item).find('input[name="color-id"]').val();
     }
 
@@ -282,21 +260,8 @@ $(function () {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     //                                                                              event handler:  화면 변경에 대한 이벤트                                                                          //
-    
+
     //              event handler: 목표 리스트의 아이템을 클릭 이벤트              //
     $('.goal-item').on('click', function () {
         goal_plan_page_move()
@@ -314,8 +279,6 @@ $(function () {
         goal_list_page_move()
         // 해당 목표에 대한 정보를 가지고 이동해야함
     });
-
-    
 
 
     //                                                                              event handler:  모달창에 출현에 대한 이벤트                                                                          //
@@ -346,13 +309,6 @@ $(function () {
     });
 
 
-
-
-
-
-
-
-
     //                                                                              event handler:  색상선택 모달 관한 이벤트                                                                          //
     $('.color-item').on('click', function () {
         set_color_id(this)
@@ -360,18 +316,6 @@ $(function () {
         toggle_seletecd_color_class(this);
         end_total_modal();
     });
-    
-
-
-
-
-
-
-
-
-
-
-
 
 
     //                                                                              event handler:  목표_공개_설정 관한 이벤트                                                                          //
@@ -387,12 +331,6 @@ $(function () {
     });
 
 
-
-
-
-
-
-
     //                                                                              event handler:  목표_삭제 관한 이벤트                                                                          //
 
     //              event handler: 목표 삭제 모달 확인 버튼 클릭 이벤트              //
@@ -403,16 +341,6 @@ $(function () {
     $('.goal-delete-cancel').on('click', function () {
         stop_click() && end_total_modal();
     });
-
-
-
-
-
-
-
-
-
-
 
 
     //                                                                              event handler:  목표_종료 관한 이벤트                                                                          //
@@ -431,65 +359,112 @@ $(function () {
         end_total_modal();
     });
 
+    $('.black-left-arrow').on('click', function () {
+        window.location.href = "/todo/feed.do";
+    });
+
+
+    //우측 상단 완료 버튼 시 이벤트 적용(ajax로 controller에 데이터 전송)
 
 
 
 
 
+    jQuery(document).ready(function (){
+
+        $(".goal-plan-complete-btn").click(function(){
+
+
+            $.ajax({
+
+                type: 'post',
+
+                url: "/todo/goal.do",
+
+                async: true,
+
+                data: {
+                    "todoTitleId" : goal_color_id,
+                    "goal_user_email" : goal_user_email,
+                    "goal_title_text" : goal_title_text,
+                    "goal_open_setting" : goal_open_setting
+                },
+
+                datatype: "JSON",
+
+                success: function(result){
+
+                    alert(result);
 
 
 
+                },
+                error: function (result) {
+                    alert("ERROR!!!");
+                }
 
+            });
 
+        })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    });
 
 
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

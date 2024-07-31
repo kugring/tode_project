@@ -4,15 +4,59 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="GoalMapper">
    <resultMap type="com.ezen.backend.VO.GoalVO" id="GoalMap">
-      <id property="todo_title_id" column="todo_title_id"/>
-      <result property="color_id" column="color_id"/>
+      <id property="todoTitleId" column="todo_title_id"/>
+      <result property="colorId" column="color_id"/>
       <result property="email" column="email"/>
-      <result property="todo_title" column="todo_title"/>
-      <result property="title_todo_open" column="title_todo_open"/>
-      <result property="title_color" column="title_color"/>   
+      <result property="todoTitle" column="todo_title"/>
+      <result property="titleTodoOpen" column="title_todo_open"/>
+      <result property="colorCode" column="color_code"/>
+
+      <collection property="feedList" ofType="com.ezen.backend.VO.FeedVO">
+         <id property="todoId" column="todo_id"/>
+         <result property="todoTitleId" column="todo_title_id"/>
+         <result property="email" column="email"/>
+         <result property="todoContent" column="todo_content"/>
+         <result property="todoCreateDate" column="todo_create_date"/>
+         <result property="todoEditDate" column="todo_edit_date"/>
+         <result property="todoCheck" column="todo_check"/>
+         <result property="todoImage" column="todo_image"/>
+         <result property="todoMemo" column="todo_memo"/>
+         <result property="todoAlarm" column="todo_alarm"/>
+      </collection>
    </resultMap>
-   
-   <select id="getAll" resultMap="GoalMap">
-      select * from todo_title;
+
+
+
+
+   <select id="getDataByEmailAndDate" parameterType="Map" resultMap="GoalMap">
+      SELECT todo_title.*, todo_list.*, color_list.color_code
+      FROM todo_title
+              LEFT JOIN todo_list ON todo_title.todo_title_id = todo_list.todo_title_id
+              LEFT JOIN color_list ON todo_title.color_id = color_list.color_id
+      WHERE todo_list.email = #{email}
+        AND DATE_FORMAT(todo_list.todo_edit_date, '%Y-%m-%d') = DATE_FORMAT(#{edit_date}, '%Y-%m-%d');
    </select>
+
+
+
+
+
+
+   <select id="getAll" resultMap="GoalMap">
+      SELECT * FROM todo_routine left JOIN todo_title ON todo_routine.todo_routine_id = todo_title.todo_title_id;
+   </select>
+
+   <select id="getList" resultMap="GoalMap" parameterType="String">
+      select * from todo_title where email = #{email};
+   </select>
+
+   <insert id="insertOne" parameterType="com.ezen.backend.VO.GoalVO" useGeneratedKeys="true" keyProperty="todoTitleId">
+        insert into todo_title(email, todo_title, title_todo_open, title_color) values (#{email}, #{todo_title}, #{title_todo_open}, #{title_color});
+   </insert>
+
+   <insert id="insertData" parameterType="com.ezen.backend.VO.GoalVO" useGeneratedKeys="true" keyProperty="todoTitleId">
+      insert into todo_title(email, todo_title, title_todo_open, title_color) values (#{email}, #{todo_title}, #{title_todo_open}, #{title_color});
+   </insert>
+
+
 </mapper>

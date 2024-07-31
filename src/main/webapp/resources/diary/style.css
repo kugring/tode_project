@@ -1,0 +1,638 @@
+.diary-container {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+    font-family: Pretendard;
+}
+.diary-body {
+    width: 930px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.diary-top {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+}
+.diary-header {
+    align-self: stretch;
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.black-left-arrow:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+.black-right-arrow:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+.diary-complete:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+.blue-diary-position {
+    align-self: stretch;
+    height: 54px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.select-emogi-button:hover {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.pro-box {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+}
+.profile-items{
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.pro-image-icon {
+    width: 32px;
+    position: relative;
+    border-radius: 50%;
+    height: 32px;
+    object-fit: cover;
+}
+.profile-text {
+    height: 41px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.username {
+    position: relative;
+    font-weight: 600;
+}
+.profile-text-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 14px;
+}
+/*날짜 관련 div인데 삭제해야할지 모르겠네요*/
+.date-follower {
+    white-space: nowrap;
+    position: relative;
+    font-weight: 500;
+}
+.date-follower:hover{
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.profile-icon-position {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+}
+#diary-textarea {
+    width: 100%; /* 너비 설정 */
+    height: 500px; /* 높이 설정 */
+    padding: 10px 0;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 140%;
+    color: black;
+    opacity: 1;
+
+    border: none;
+    outline: none;
+    resize: none; /* 사용자가 크기 조절하지 못하도록 설정 */
+    overflow-wrap: break-word; /* 단어 단위로 줄바꿈 설정 */
+    white-space: pre-wrap; /* 연속 공백과 줄바꿈을 유지 */
+
+
+}
+.diary-lower-bottom {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom:10px;
+    gap: 16px;
+}
+
+.select-color-button:hover {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/*다이어리 최하단 이미지 상하 폭 조절을 위해 생성*/
+.diary-lower-gap {
+    height:15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------       ---모달창 CSS------------------------------*/
+.diary-black-modal {
+    z-index: 1;
+    position: absolute;
+    display: none;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    opacity:0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+}
+.open-setting-modal {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: calc(50vw - 250px);
+
+    border-radius: 15px 15px 0px 0px;
+    background-color: #fff;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 25px;
+    gap: 20px;
+    font-size: 14.5px;
+    color: #575757;
+    font-family: Pretendard;
+    transform: translateY(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.open-setting-title {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 13px;
+    color: #000;
+    font-family: Inter;
+}
+.gray-slice-bar {
+    width: 38px;
+    position: relative;
+    border-radius: 50px;
+    background-color: #d5d5d5;
+    height: 4.5px;
+}
+.open-setting-text {
+    width: 151px;
+    position: relative;
+    font-weight: 600;
+    display: inline-block;
+}
+.open-setting-items {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+    font-size: 16px;
+}
+.gobal-open {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.gobal-open-width {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+}
+.gobal-open-height-gap {
+    width: 28px;
+    border-radius: 14px;
+    height: 28px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px;
+    box-sizing: border-box;
+}
+.gobal-open:hover{
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.open-onlyme-image-width {
+    width: 28px;
+    position: relative;
+    height: 28px;
+}
+.open-onlyme-iamge-position {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 14px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.open-setting-ok-button {
+    width: 450px;
+    border-radius: 7px;
+    background-color: #f3f3f3;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 17px 86px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.open-setting-ok-button:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.calendar-modal {
+    z-index:2;
+    position:absolute;
+    bottom:0;
+    border-radius: 15px 15px 0px 0px;
+    background-color: #fff;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 25px;
+    gap: 20px;
+    transform: translateY(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.calendar-title {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+.calendar-select-bar {
+    width: 450px;
+    height: 16.1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 15px;
+}
+.selected-date {
+    position: relative;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+.select-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+.calendar-contents {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    color: #878787;
+    font-family: Inter;
+}
+.calendar-Day-weekday {
+    width: 30px;
+    position: relative;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    flex-shrink: 0;
+}
+.calendar-days {
+    width: 416px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px 32px;
+    font-size: 16px;
+    color: #000;
+    font-family: 'Noto Sans KR';
+}
+.empty {
+    width: 32px;
+    position: relative;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    font-family: Inter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    flex-shrink: 0;
+}
+.div18 {
+    width: 32px;
+    border-radius: 7px;
+    background-color: #eaeaea;
+    height: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-weekday-date {
+    width: 32px;
+    position: relative;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+.div2 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+}
+.icon {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 18px;
+    height: 18px;
+    object-fit: cover;
+}
+.pre-button-icon {
+    width: 14px;
+    position: relative;
+    height: 14px;
+    object-fit: contain;
+}
+.next-button-icon {
+    width: 14px;
+    position: relative;
+    height: 14px;
+    object-fit: cover;
+}
+.week-days-position {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 18px;
+}
+.calendar-Day-weekend {
+    width: 30px;
+    position: relative;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    color: #ff4242;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    flex-shrink: 0;
+}
+.calendar-sunday {
+    width: 32px;
+    position: relative;
+    letter-spacing: 0.05em;
+    color: #ff4242;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    flex-shrink: 0;
+}
+.calendar-ok-button {
+    width: 450px;
+    position: relative;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    height: 40px;
+}
+.calendar-ok-button:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.ok-text {
+    position: absolute;
+    top: 10.42px;
+    left: calc(50% - 37px);
+    font-weight: 500;
+    display: inline-block;
+    width: 74px;
+    height: 17px;
+}
+
+.div27 {
+    width: 24px;
+    position: absolute;
+    margin: 0 !important;
+    top: calc(50% - 12px);
+    left: calc(50% - 12px);
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    flex-shrink: 0;
+    mix-blend-mode: normal;
+    z-index: 0;
+}
+.div26 {
+    width: 32px;
+    border-radius: 7px;
+    background-color: #000;
+    height: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #fff;
+}
+
+
+.colors-modal {
+    z-index: 2;
+    position:absolute;
+    bottom:0;
+    left: calc(50vw - 250px);
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 208px;
+    padding: 10px 25px;
+    gap: 20px;
+    opacity: 0;
+    border-radius: 15px 15px 0px 0px;
+    box-sizing: border-box;
+    background-color: #fff;
+    transform: translateY(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.colors-items {
+    width: 384px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 24px 48px;
+}
+.color-item {
+    width: 24px;
+    position: relative;
+    border-radius: 50%;
+    background-color: #559ff0;
+    height: 24px;
+}
+.emoji-modal {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: calc(50vw - 250px);
+    width: 500px;
+    border-radius: 15px 15px 0px 0px;
+    background-color: #fff;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 25px;
+    box-sizing: border-box;
+    gap: 20px;
+    transform: translateY(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.emoji-title {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+.emoji-items {
+    width: 384px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 24px 48px;
+}
+.emoji-item {
+    width: 24px;
+    position: relative;
+    border-radius: 50px;
+    background-color: #d9d9d9;
+    height: 24px;
+}
+
+.follower-open{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    align-self: stretch;
+    flex-direction: row;
+    gap:4px;
+}
+
+
+
+.follower-open:hover {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+
+
+.follower1-open:hover {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+

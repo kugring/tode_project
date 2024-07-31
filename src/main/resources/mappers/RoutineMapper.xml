@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="RoutineMapper">
+    <resultMap type="com.ezen.backend.VO.RoutineVO" id="RoutineMap">
+        <id property="todoRoutineId" column="todo_routine_id"/>
+        <result property="todoTitleId" column="todo_title_id"/>
+        <result property="startDate" column="start_date"/>
+        <result property="endDate" column="end_date"/>
+        <result property="everyRefeat" column="every_refeat"/>
+
+    </resultMap>
+
+    <select id="getAll" resultMap="RoutineMap">
+        SELECT * FROM todo_routine left JOIN todo_title ON todo_routine.todo_routine_id = todo_title.todo_title_id;
+    </select>
+
+    <select id="selectOne" resultMap="RoutineMap">
+        select * from todo_routine where todo_title_id = #{todo_title_id};
+    </select>
+
+<!--    <insert id="insert" parameterType="com.ezen.backend.VO.RoutineVO">-->
+<!--        insert into todo_routine (todo_routine_id, todo_title_id, start_date, end_date,every_refeat) values(#{todo_routine_id}, #{todo_title_id},'2024-07-23','2024-12-12',true);-->
+<!--    </insert>-->
+
+    <insert id="insert" parameterType="com.ezen.backend.VO.RoutineVO">
+        insert into todo_routine (start_date, end_date,every_refeat) values('2024-07-23','2024-12-12',true);
+    </insert>
+
+</mapper>

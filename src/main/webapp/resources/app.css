@@ -1,0 +1,695 @@
+@charset "UTF-8";
+
+.black-bell{
+    background-image: url("assets/black_bell.png");
+}
+.black-check-box{
+    background-image: url("./assets/black_check_box.png");
+}
+.black-check-circle{
+    background-image: url("./assets/black_check_circle.png");
+}
+.black-clock{
+    background-image: url("./assets/black_clock.png");
+}
+.black-compass{
+    background-image: url("./assets/black_compass.png");
+}
+.black-down-arrow{
+    background-image: url("./assets/black_down_arrow.png");
+}
+.black-earth{
+    background-image: url("./assets/black_earth.png");
+}
+.black-git-pen{
+    background-image: url("./assets/black_git_pen.png");
+}
+.black-group{
+    background-image: url("./assets/black_group.png");
+}
+.black-heart{
+    background-image: url("./assets/black_heart.png");
+}
+.black-height-menu{
+    background-image: url("./assets/black_height_menu.png");
+}
+.black-home{
+    background-image: url("./assets/home.png");
+}
+.black-image-frame{
+    background-image: url("./assets/black_image_frame.png");
+}
+.black-left-arrow{
+    background-image: url("./assets/black_left_arrow.png");
+}
+.black-bold-left-arrow{
+    background-image: url("./assets/black_bold_right_arrow.png");
+    transform: rotate(180deg);
+}
+.black-bold-right-arrow{
+    background-image: url("./assets/black_bold_right_arrow.png");
+}
+.black-lock{
+    background-image: url("./assets/black_lock.png");
+}
+.black-man{
+    background-image: url("./assets/black_man.png");
+}
+.black-pen{
+    background-image: url("./assets/black_pen.png");
+}
+.black-plus{
+    background-image: url("./assets/black_plus.png");
+}
+.black-medium-plus{
+    background-image: url("./assets/black_medium_plus.png");
+}
+.black-thin-plus{
+    background-image: url("./assets/black_thin_plus.png");
+}
+.black-right-arrow{
+    background-image: url("./assets/black_left_arrow.png");
+    transform: rotate(180deg);
+}
+.black-switch{
+    background-image: url("./assets/black_switch.png");
+}
+.black-up-arrow{
+    background-image: url("./assets/black_up_arrow.png");
+}
+.black-width-menu{
+    background-image: url("./assets/black_width_menu.png");
+}
+.black-x{
+    background-image: url("./assets/black_x.png");
+}
+.black-clock{
+    background-image: url("./assets/black_clock.png");
+}
+.red-todo-delete{
+    background-image: url("./assets/red_delete.png");
+}
+.blue-check-box{
+    background-image: url("./assets/blue_check_box.png");
+    scale:1.2;
+}
+.blue-radio{
+    background-image: url("./assets/blue_radio.png");
+    scale:1.2;
+}
+.blue-plus{
+    background-image: url("./assets/blue_plus.png");
+}
+.blue-edit-pen{
+    background-image: url("./assets/blue_edit_pen.png");
+}
+.blue-edit-todo{
+    background-image: url("./assets/blue_edit_todo.png");
+}
+.color-caution{
+    background-image: url("./assets/color_caution.png");
+}
+.color-diary{
+    background-image: url("./assets/color_diary.png");
+}
+.color-goal{
+    background-image: url("./assets/color_goal.png");
+}
+.color-image-frame{
+    background-image: url("./assets/color_image_frame.png");
+}
+.color-time-off{
+    background-image: url("./assets/color_time_off.png");
+}
+.default-gallery{
+    background-image: url("./assets/default_gallery.png");
+}
+.empty-black-box{
+    background-image: url("./assets/empty_black_box.png");
+}
+.empty-black-check-circle{
+    background-image: url("./assets/empty_black_check_circle.png");
+}
+.empty-black-circle{
+    background-image: url("./assets/empty_black_circle.png");
+}
+.empty-black-man-off{
+    background-image: url("./assets/empty_black_man_off.png");
+}
+.empty-black-reading-glass{
+    background-image: url("./assets/empty_black_reading_glass.png");
+}
+.empty-heart{
+    background-image: url("./assets/empty_heart.png");
+}
+.gray-heart{
+    background-image: url("./assets/gray_heart.png");
+}
+.gray-no-select{
+    background-image: url("./assets/gray_no_select.png");
+}
+.pink-heart{
+    background-image: url("./assets/pink_heart.png");
+}
+.profile-image{
+    background-image: url("./assets/profile_image.png");
+}
+.rainbow{
+    background-image: url("./assets/rainbow.png");
+}
+.smile-emogi{
+    background-image: url("./assets/smile_emogi.png");
+}
+.smile-face{
+    background-image: url("./assets/smile_face.png");
+}
+.white-arrow-right{
+    background-image: url("./assets/white_arrow_right.png");
+}
+.white-change-daily{
+    background-image: url("./assets/white_change_daily.png");
+}
+.white-chat-light{
+    background-image: url("./assets/white_chat_light.png");
+}
+.white-check-circle{
+    background-image: url("./assets/white_check_circle.png");
+}
+.white-default-profile{
+    background-image: url("./assets/white_default_profile.png");
+}
+.white-eye-off{
+    background-image: url("./assets/white_eye_off.png");
+}
+.white-eye-on{
+    background-image: url("./assets/white_eye_on.png");
+}
+.white-git-pen{
+    background-image: url("./assets/white_git_pen.png");
+}
+.white-hard-drop-down{
+    background-image: url("./assets/white_hard_drop_down.png");
+}
+.white-image-frame{
+    background-image: url("./assets/white_image_frame.png");
+}
+.white-insta{
+    background-image: url("./assets/white_insta.png");
+}
+.white-pen{
+    background-image: url("./assets/white_pen.png");
+}
+.white-plus{
+    background-image: url("./assets/white_plus.png");
+}
+.white-right-arrow{
+    background-image: url("./assets/white_right_arrow.png");
+}
+.white-routine{
+    background-image: url("./assets/white_routine.png");
+} 
+.white-soft-drop-down{
+    background-image: url("./assets/white_soft_drop_down.png");
+}
+.white-x-circle{
+    background-image: url("./assets/white_x_circle.png");
+}
+.white-round-plus{
+    background-image: url("./assets/white_round_plus.png");
+}
+.note-logo{
+    background-image: url("./assets/note_logo.svg");
+}
+.tode-logo{
+    background-image: url("./assets/tode_logo.svg");
+}
+.black-more{
+    background-image: url("./assets/more.png");
+}
+.sad-emogi{
+    background-image: url("./assets/sad_emoji.png");
+}
+.memo-icon{
+    background-image: url("./assets/memo_icon.png");
+}
+.alarm-icon{
+    background-image: url("./assets/alarm_icon.png");
+}
+.image-icon{
+    background-image: url("./assets/image_icon.png");
+}
+.today-again-icon{
+    background-image: url("./assets/today_again_icon.png");
+}
+.tomorrow-again-icon{
+    background-image: url("./assets/tomorrow_again_icon.png");
+}
+.anotherDay-again-icon{
+    background-image: url("./assets/anotherDay_again_icon.png");
+}
+.day-change-icon{
+    background-image: url("./assets/day_change_icon.png");
+}
+.today-move-icon{
+    background-image: url("./assets/today_move_icon.png");
+}
+.tomorrow-move-icon{
+    background-image: url("./assets/tomorrow_move_iocn.png");
+}
+.routine-add-icon{
+    background-image: url("./assets/routine_add_icon.png");
+}
+.total-todo-tomorrow-move-icon{
+    background-image: url("./assets/total_todo_tomorrow_move.png");
+}
+.total-todo-anotherDay-move-icon{
+    background-image: url("./assets/total_todo_anotherDay_move.png");
+}
+.total-todo-current-delete-icon{
+    background-image: url("./assets/total_todo_current_delete.png");
+}
+.total-todo-all-copy-icon{
+    background-image: url("./assets/total_todo_all_copy.png");
+}
+.total-todo-all-delete-icon{
+    background-image: url("./assets/total_todo_all_delete.png");
+}
+.gray-slice-bar {
+    width: 38px;
+    border-radius: 50px;
+    background-color: #d5d5d5;
+    height: 4.5px;
+}
+
+
+/* 아래는 아이콘 크기, 설정에 대한 css */
+
+.icon-8{
+    width: 8px;
+    height: 8px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-10{
+    width: 10px;
+    height: 10px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-14{
+    width: 14px;
+    height: 14px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.icon-12{
+    width: 12px;
+    height: 12px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-16{
+    width: 16px;
+    height: 16px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-18{
+    width: 18px;
+    height: 18px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-20{
+    width: 20px;
+    height: 20px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-22{
+    width: 22px;
+    height: 22px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-24{
+    width: 24px;
+    height: 24px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-28{
+    width: 28px;
+    height: 28px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-30{
+    width: 30px;
+    height: 30px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-32{
+    width: 32px;
+    height: 32px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-36{
+    width: 36px;
+    height: 36px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-40{
+    width: 40px;
+    height: 40px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-45{
+    width: 45px;
+    height: 45px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-48{
+    width: 48px;
+    height: 48px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-50{
+    width: 50px;
+    height: 50px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-52{
+    width: 52px;
+    height: 52px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-54{
+    width: 54px;
+    height: 54px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-55{
+    width: 55px;
+    height: 55px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-60{
+    width: 60px;
+    height: 60px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.icon-80{
+    width: 80px;
+    height: 80px;
+
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+
+.op-1{
+    opacity: 0.1;
+}
+.op-2{
+    opacity: 0.2;
+}
+.op-3{
+    opacity: 0.3;
+}
+.op-4{
+    opacity: 0.4;
+}
+.op-5{
+    opacity: 0.5;
+}
+.op-6{
+    opacity: 0.6;
+}
+.op-7{
+    opacity: 0.7;
+}
+.op-8{
+    opacity: 0.8;
+}
+
+
+
+/* 아래는 버튼 및 호버 관련된 css 입니다. */
+
+.divider{
+    border-top:1px solid rgba(0,0,0,0.2);
+    width: 100%;
+}
+
+.dot-divider{
+    border-top:2px dotted rgba(0,0,0,0.1);
+    width: 100%;
+}
+.emphasis{
+    font-weight: bolder;
+}
+
+.word-badge{
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 30px;
+    padding: 6px 20px;
+ 
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    color:rgba(0,0,0,0.5)
+}
+
+.word-badge:hover{
+    background-color: rgba(0,0,0,0.05);
+    cursor: pointer;
+}
+
+.black-button {
+    border-radius: 46px;
+    width: 95px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0,0,0,1);
+
+    color: rgba(255,255,255,1);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+
+    cursor: pointer;
+}
+
+.black-button:hover{
+    background-color: rgba(0,0,0,0.8);
+}
+
+.black-large-full-button{
+    border-radius: 46px;
+
+    width: 100%;
+    height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0,0,0,1);
+
+    color: rgba(255,255,255,1);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+
+    cursor: pointer;
+}
+
+.black-large-full-button:hover{
+    background-color: rgba(0,0,0,0.8);
+}
+
+.disable-button{
+    border-radius: 46px;
+    width: 95px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0,0,0,0.4);
+
+    color: rgba(255,255,255,1);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+
+    cursor: not-allowed; 
+}
+
+.white-button{
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 46px;
+    width: 93px;
+    height: 28px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255,255,255,1);
+
+    color: rgba(0,0,0,0.5);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+
+    cursor: pointer;
+}
+
+.white-button:hover{
+    background-color: rgba(0,0,0,0.05);
+}
+
+
+/*
+Copyright (c) 2021 Kil Hyung-jin, with Reserved Font Name Pretendard.
+https://github.com/orioncactus/pretendard
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+*/
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 900;
+	font-display: swap;
+	src: local('Pretendard Black'), url(./assets/static/woff/Pretendard-Black.woff) format('woff2'), url(./assets/static/woff/Pretendard-Black.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 800;
+	font-display: swap;
+	src: local('Pretendard ExtraBold'), url(./assets/static/woff2/Pretendard-ExtraBold.woff2) format('woff2'), url(./assets/static/woff/Pretendard-ExtraBold.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 700;
+	font-display: swap;
+	src: local('Pretendard Bold'), url(./assets/static/woff2/Pretendard-Bold.woff2) format('woff2'), url(./assets/static/woff/Pretendard-Bold.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 600;
+	font-display: swap;
+	src: local('Pretendard SemiBold'), url(./assets/static/woff2/Pretendard-SemiBold.woff2) format('woff2'), url(./assets/static/woff/Pretendard-SemiBold.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 500;
+	font-display: swap;
+	src: local('Pretendard Medium'), url(./assets/static/woff2/Pretendard-Medium.woff2) format('woff2'), url(./assets/static/woff/Pretendard-Medium.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 400;
+	font-display: swap;
+	src: local('Pretendard Regular'), url(./assets/static/woff2/Pretendard-Regular.woff2) format('woff2'), url(./assets/static/woff/Pretendard-Regular.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 300;
+	font-display: swap;
+	src: local('Pretendard Light'), url(./assets/static/woff2/Pretendard-Light.woff2) format('woff2'), url(./assets/static/woff/Pretendard-Light.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 200;
+	font-display: swap;
+	src: local('Pretendard ExtraLight'), url(./assets/static/woff2/Pretendard-ExtraLight.woff2) format('woff2'), url(./assets/static/woff/Pretendard-ExtraLight.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard';
+	font-weight: 100;
+	font-display: swap;
+	src: local('Pretendard Thin'), url(./assets/static/woff2/Pretendard-Thin.woff2) format('woff2'), url(./assets/static/woff/Pretendard-Thin.woff) format('woff');
+}
+
+body {
+    margin: 0;
+    /*min-width: 1440px;*/
+    font-family:Pretendard;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    white-space: nowrap;
+    overflow: hidden;
+  }

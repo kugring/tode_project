@@ -1,118 +1,92 @@
-package com.a.ezn;
+package com.ezen.backend.VO;
+
+import java.util.Date;  // Date 타입을 사용할 경우 import
 
 public class UserVO {
 	private String email;
 	private String password;
 	private String gender;
-	private String nick_name;
-	private String phone_number;
-	private Boolean agreed_personal;
-	private String profile_image;
-	private int user_type;
-	private int ben_count;
-	private String self_introduction;
-	private String create_date;
-	private String delete_date;
-	
-	
-	
+	private String nickName;  // CamelCase 사용
+	private String phoneNumber;  // CamelCase 사용
+	private Boolean agreedPersonal;  // CamelCase 사용
+	private String profileImage;  // CamelCase 사용
+	private int userType;  // CamelCase 사용
+	private int benCount;  // CamelCase 사용
+	private String selfIntroduction;  // CamelCase 사용
+	private Date createDate;  // Date 타입 사용
+	private Date deleteDate;  // Date 타입 사용
+
+	// Getters and Setters
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 	public String getGender() {
 		return gender;
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
-	
-	public String getNick_name() {
-		return nick_name;
+	public String getNickName() {  // CamelCase 사용
+		return nickName;
 	}
-	public void setNick_name(String nick_name) {
-		this.nick_name = nick_name;
+	public void setNickName(String nickName) {  // CamelCase 사용
+		this.nickName = nickName;
 	}
-	
-	
-	public String getPhone_number() {
-		return phone_number;
+	public String getPhoneNumber() {  // CamelCase 사용
+		return phoneNumber;
 	}
-	public void setPhone_number(String phone_number) {
-		this.phone_number = phone_number;
+	public void setPhoneNumber(String phoneNumber) {  // CamelCase 사용
+		this.phoneNumber = phoneNumber;
 	}
-	
-	
-	public Boolean getAgreed_personal() {
-		return agreed_personal;
+	public Boolean getAgreedPersonal() {  // CamelCase 사용
+		return agreedPersonal;
 	}
-	public void setAgreed_personal(Boolean agreed_personal) {
-		this.agreed_personal = agreed_personal;
+	public void setAgreedPersonal(Boolean agreedPersonal) {  // CamelCase 사용
+		this.agreedPersonal = agreedPersonal;
 	}
-	
-	
-	public String getProfile_image() {
-		return profile_image;
+	public String getProfileImage() {  // CamelCase 사용
+		return profileImage;
 	}
-	public void setProfile_image(String profile_image) {
-		this.profile_image = profile_image;
+	public void setProfileImage(String profileImage) {  // CamelCase 사용
+		this.profileImage = profileImage;
 	}
-	
-	
-	public int getUser_type() {
-		return user_type;
+	public int getUserType() {  // CamelCase 사용
+		return userType;
 	}
-	public void setUser_type(int user_type) {
-		this.user_type = user_type;
+	public void setUserType(int userType) {  // CamelCase 사용
+		this.userType = userType;
 	}
-	
-	
-	public int getBen_count() {
-		return ben_count;
+	public int getBenCount() {  // CamelCase 사용
+		return benCount;
 	}
-	public void setBen_count(int ben_count) {
-		this.ben_count = ben_count;
+	public void setBenCount(int benCount) {  // CamelCase 사용
+		this.benCount = benCount;
 	}
-	
-	
-	public String getSelf_introduction() {
-		return self_introduction;
+	public String getSelfIntroduction() {  // CamelCase 사용
+		return selfIntroduction;
 	}
-	public void setSelf_introduction(String self_introduction) {
-		this.self_introduction = self_introduction;
+	public void setSelfIntroduction(String selfIntroduction) {  // CamelCase 사용
+		this.selfIntroduction = selfIntroduction;
 	}
-	
-	
-	public String getCreate_date() {
-		return create_date;
+	public Date getCreateDate() {  // Date 타입 사용
+		return createDate;
 	}
-	public void setCreate_date(String create_date) {
-		this.create_date = create_date;
+	public void setCreateDate(Date createDate) {  // Date 타입 사용
+		this.createDate = createDate;
 	}
-	
-	
-	public String getDelete_date() {
-		return delete_date;
+	public Date getDeleteDate() {  // Date 타입 사용
+		return deleteDate;
 	}
-	public void setDelete_date(String delete_date) {
-		this.delete_date = delete_date;
+	public void setDeleteDate(Date deleteDate) {  // Date 타입 사용
+		this.deleteDate = deleteDate;
 	}
-
-	
-
-	
-
 }

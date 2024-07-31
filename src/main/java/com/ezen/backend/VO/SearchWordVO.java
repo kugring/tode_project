@@ -1,49 +1,40 @@
-package com.a.ezn;
+package com.ezen.backend.VO;
 
 public class SearchWordVO {
-	private int search_word_id;
-	private String search_word;
-	private String relation_word;
+	private int searchWordId; // 필드명을 search_word_id에서 searchWordId로 변경 (카멜 케이스 사용)
+	private String searchWord; // 필드명을 search_word에서 searchWord로 변경 (카멜 케이스 사용)
+	private String relationWord; // 필드명을 relation_word에서 relationWord로 변경 (카멜 케이스 사용)
 	private Boolean relation;
-	
-	
-	
-	public int getSearch_word_id() {
-		return search_word_id;
+
+	public int getSearchWordId() {
+		return searchWordId;
 	}
-	public void setSearch_word_id(int search_word_id) {
-		this.search_word_id = search_word_id;
+
+	public void setSearchWordId(int searchWordId) {
+		this.searchWordId = searchWordId;
 	}
-	
-	
-	public String getSearch_word() {
-		return search_word;
+
+	public String getSearchWord() {
+		return searchWord;
 	}
-	public void setSearch_word(String search_word) {
-		this.search_word = search_word;
+
+	public void setSearchWord(String searchWord) {
+		this.searchWord = searchWord;
 	}
-	
-	
-	public String getRelation_word() {
-		return relation_word;
+
+	public String getRelationWord() {
+		return relationWord;
 	}
-	public void setRelation_word(String relation_word) {
-		this.relation_word = relation_word;
+
+	public void setRelationWord(String relationWord) {
+		this.relationWord = relationWord;
 	}
-	
-	
+
 	public Boolean getRelation() {
 		return relation;
 	}
+
 	public void setRelation(Boolean relation) {
 		this.relation = relation;
 	}
-
-	
-	
-	
-	
-	
-	
-	
 }

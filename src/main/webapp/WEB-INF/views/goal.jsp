@@ -11,8 +11,8 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans KR:wght@300;500&display=swap" />
 	<link href="${path}/resources/goal/style.css" type="text/css" rel="stylesheet" />
 	<link href="${path}/resources/app.css" type="text/css" rel="stylesheet" />
-	<script src="${path}/resources/goal/script.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="${path}/resources/goal/script.js"></script>
 </head>
 <body>
 
@@ -26,14 +26,20 @@
 			</div>
 		</div>
 		<div class="goal-list">
-
-			<c:forEach items="${tvo}" var="item">
-				<div class="goal-item" style="color: red">❤️️1순위❤️
-					<input type="hidden" name="todo-title-id" value="${item.todo_title_id}">
-					<input type="hidden" name="color-id" value="${item.color_id}">
+			<div class="goal-item" style="color: #F54E5E">❤️️1순위❤️
+				<input type="hidden" name="todo-title-id" value="1">
+				<input type="hidden" name="color-id" value="23">
+				<input type="hidden" name="email" value="wogur8243@naver.com">
+				<input type="hidden" name="todo-title" value="❤️️1순위❤️">
+				<input type="hidden" name="title-todo-open" value="전체 공개">
+			</div>
+			<c:forEach items="${goalVo}" var="item">
+				<div class="goal-item" style="color: red">${item.todoTitle}
+					<input type="hidden" name="todo-title-id" value="${item.todoTitleId}">
+					<input type="hidden" name="color-id" value="${item.colorId}">
 					<input type="hidden" name="email" value="${item.email}">
-					<input type="hidden" name="todo-title" value="${item.todo_title}">
-					<input type="hidden" name="title-todo-open" value="${item.title_todo_open}">
+					<input type="hidden" name="todo-title" value="${item.todoTitle}">
+					<input type="hidden" name="title-todo-open" value="${item.titleTodoOpen}">
 				</div>
 			</c:forEach>
 

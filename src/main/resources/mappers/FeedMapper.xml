@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="FeedMapper">
+    <resultMap type="com.ezen.backend.VO.FeedVO" id="FeedMap">
+        <id property="todoId" column="todo_id"/>
+        <result property="todoTitleId" column="todo_title_id"/>
+        <result property="email" column="email"/>
+        <result property="todoContent" column="todo_content"/>
+        <result property="todoCreateDate" column="todo_create_date"/>
+        <result property="todoEditDate" column="todo_edit_date"/>
+        <result property="todoCheck" column="todo_check"/>
+        <result property="todoImage" column="todo_image"/>
+        <result property="todoMemo" column="todo_memo"/>
+        <result property="todoAlarm" column="todo_alarm"/>
+    </resultMap>
+
+    <select id="getAll" resultMap="FeedMap">
+        select * from todo_list;
+    </select>
+
+
+
+
+    <insert id="insertOne" parameterType="com.ezen.backend.VO.FeedVO" useGeneratedKeys="true" keyProperty="todoId">
+        insert into todo_list(email, todo_title_id, todo_check, todo_content, todo_edit_date) values (#{email}, #{todoTitleId}, "미완료", #{todoContent}, #{todoEditDate});
+    </insert>
+
+
+
+    <update id="editTodoContent" parameterType="com.ezen.backend.VO.FeedVO">
+        UPDATE todo_list
+        SET todo_content = #{todoContent}
+        WHERE todo_id = #{todoId}
+    </update>
+
+
+
+
+
+    <update id="selectedTodoAnotherDayMove" parameterType="com.ezen.backend.VO.FeedVO">
+        UPDATE todo_list
+        SET todo_edit_date = #{todoEditDate}
+        WHERE todo_id = #{todoId}
+    </update>
+
+
+
+    <update id="checkBoxChange" parameterType="com.ezen.backend.VO.FeedVO">
+        UPDATE todo_list
+        SET todo_check = #{todoCheck}
+        WHERE todo_id = #{todoId}
+    </update>
+
+    <delete id="deleteTodo" parameterType="com.ezen.backend.VO.FeedVO">
+        DELETE FROM todo_list WHERE todo_id = #{todoId}
+    </delete>
+
+    <select id="findByEmailAndToday" resultMap="FeedMap" parameterType="com.ezen.backend.VO.FeedVO">
+        SELECT * FROM todo_list
+        WHERE email = #{email}
+          AND DATE_FORMAT(todo_edit_date, '%Y-%m-%d') = DATE_FORMAT(now(), '%Y-%m-%d');
+    </select>
+
+
+
+    <select id="findCompletedTodosPerDay" resultType="map" parameterType="map">
+        SELECT
+            DAY(todo_edit_date) AS day_of_month,
+            COALESCE(
+            (SUM(CASE WHEN todo_check = '완료' THEN 1 ELSE 0 END) * 100.0 / NULLIF(COUNT(*), 0)), 0
+            ) AS completed_percentage,
+            SUM(CASE WHEN todo_check = '완료' THEN 1 ELSE 0 END) AS finish_count,
+            SUM(CASE WHEN todo_check = '미완료' THEN 1 ELSE 0 END) AS current_count
+        FROM
+            todo_list
+        WHERE
+            email = #{email}
+          AND YEAR(todo_edit_date) = #{year}
+          AND MONTH(todo_edit_date) = #{month}
+        GROUP BY
+            DAY(todo_edit_date)
+        ORDER BY
+            DAY(todo_edit_date);
+    </select>
+
+
+    <select id="findByEmailAndEditDate" resultMap="FeedMap" parameterType="map">
+        SELECT * FROM todo_list
+        WHERE email = #{email}
+          AND DATE_FORMAT(todo_edit_date, '%Y-%m-%d') = DATE_FORMAT(#{date}, '%Y-%m-%d');
+    </select>
+
+
+
+</mapper>

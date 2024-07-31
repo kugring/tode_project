@@ -1,11 +1,11 @@
 package com.ezen.backend.VO;
 
-public class TodoRoutineVO {
+public class RoutineVO {
 	private int todoRoutineId; // 필드명을 todo_routine_id에서 todoRoutineId로 변경 (카멜 케이스 사용)
 	private int todoTitleId; // 필드명을 todo_title_id에서 todoTitleId로 변경 (카멜 케이스 사용)
 	private String startDate; // 필드명을 start_date에서 startDate로 변경 (카멜 케이스 사용)
 	private String endDate; // 필드명을 end_date에서 endDate로 변경 (카멜 케이스 사용)
-	private Boolean everyRepeat; // 필드명을 every_refeat에서 everyRepeat로 변경 (카멜 케이스 사용)
+	private Boolean everyRefeat; // 필드명을 every_refeat에서 everyRepeat로 변경 (카멜 케이스 사용)
 
 	public int getTodoRoutineId() {
 		return todoRoutineId;
@@ -39,11 +39,11 @@ public class TodoRoutineVO {
 		this.endDate = endDate;
 	}
 
-	public Boolean getEveryRepeat() {
-		return everyRepeat;
+	public Boolean getEveryRefeat() {
+		return everyRefeat;
 	}
 
-	public void setEveryRepeat(Boolean everyRepeat) {
-		this.everyRepeat = everyRepeat;
+	public void setEveryRefeat(Boolean everyRefeat) {
+		this.everyRefeat = everyRefeat;
 	}
 }

@@ -1,9 +1,10 @@
-package com.a.ezn;
+package com.ezen.backend.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.ezen.backend.VO.UserVO;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 
@@ -13,7 +14,7 @@ public class LoginSessionInterceptor implements HandlerInterceptor{
 			throws Exception {
 		
 		HttpSession session = request.getSession();
-		MemberVO user = (MemberVO)session.getAttribute("user");
+		UserVO user = (UserVO)session.getAttribute("user");
 		
 		if(user == null) {
 			response.sendRedirect(request.getContextPath() + "/user/login.do");

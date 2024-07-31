@@ -2,70 +2,68 @@ package com.ezen.backend.VO;
 
 import java.util.List;
 
-public class TodoTitleVO {
-	private int todo_title_id;
-	private int color_id;
-	private String email;
-	private String todo_title;
-	private int title_todo_open;
-	private String title_color;
-	private List<UserVO> users; 
-	
-	
-	
-	public int getTodo_title_id() {
-		return todo_title_id;
-	}
-	public void setTodo_title_id(int todo_title_id) {
-		this.todo_title_id = todo_title_id;
-	}
-	
-	
-	public int getColor_id() {
-		return color_id;
-	}
-	public void setColor_id(int color_id) {
-		this.color_id = color_id;
-	}
-	
-	
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	
-	public String getTodo_title() {
-		return todo_title;
-	}
-	public void setTodo_title(String todo_title) {
-		this.todo_title = todo_title;
-	}
-	
-	
-	public int getTitle_todo_open() {
-		return title_todo_open;
-	}
-	public void setTitle_todo_open(int title_todo_open) {
-		this.title_todo_open = title_todo_open;
-	}
-	
-	
-	public String getTitle_color() {
-		return title_color;
-	}
-	public void setTitle_color(String title_color) {
-		this.title_color = title_color;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+public class GoalVO {
+    private int todoTitleId;
+    private int colorId;
+    private String email;
+    private String todoTitle;
+    private String titleTodoOpen;
+    private String colorCode;
+    private List<FeedVO> feedList;
+
+    public int getTodoTitleId() {
+        return todoTitleId;
+    }
+
+    public void setTodoTitleId(int todoTitleId) {
+        this.todoTitleId = todoTitleId;
+    }
+
+    public int getColorId() {
+        return colorId;
+    }
+
+    public void setColorId(int colorId) {
+        this.colorId = colorId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTodoTitle() {
+        return todoTitle;
+    }
+
+    public void setTodoTitle(String todoTitle) {
+        this.todoTitle = todoTitle;
+    }
+
+    public String getTitleTodoOpen() {
+        return titleTodoOpen;
+    }
+
+    public void setTitleTodoOpen(String titleTodoOpen) {
+        this.titleTodoOpen = titleTodoOpen;
+    }
+
+    public List<FeedVO> getFeedList() {
+        return feedList;
+    }
+
+    public void setFeedList(List<FeedVO> feedList) {
+        this.feedList = feedList;
+    }
+
+    public String getColorCode() {
+        return colorCode;
+    }
+
+    public void setColorCode(String colorCode) {
+        this.colorCode = colorCode;
+    }
 }

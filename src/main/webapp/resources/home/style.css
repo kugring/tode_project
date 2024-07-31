@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.icon {
+    width: 158px;
+    position: relative;
+    height: 157px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.div1 {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.tode-icon {
+    width: 200.7px;
+    position: relative;
+    height: 52.4px;
+}
+.div2 {
+    align-self: stretch;
+    position: relative;
+}
+.div5 {
+    position: relative;
+    letter-spacing: -0.05em;
+    font-weight: 900;
+}
+.div4 {
+    align-self: stretch;
+    border-radius: 50px;
+    background-color: #587dff;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 23px 66px;
+    box-sizing: border-box;
+}
+.div6 {
+    align-self: stretch;
+    border-radius: 50px;
+    background-color: #000;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 23px 66px;
+    box-sizing: border-box;
+}
+.div3 {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 11px;
+    font-size: 18px;
+    color: #fff;
+    font-family: Inter;
+}
+.div {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    text-align: center;
+    font-size: 16px;
+    color: #808080;
+    font-family: 'Noto Sans';
+}
+

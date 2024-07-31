@@ -1,295 +1,357 @@
-package com.a.ezn;
+package com.ezen.backend.controller;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.time.LocalDate;
+import java.util.*;
 
 import javax.servlet.ServletContext;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.ezen.backend.Repository.*;
+import com.ezen.backend.VO.*;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.*;
 
-import com.a.ezn.repo.TodoTitleRepository;
-import com.a.ezn.repo.UserRepository;
-
-/*
- * 	BoardController 클래스가 com.a.ean 패키지 아래에 존재하고
- * @Controller(@Componant) 어노테이션이 달려있기 때문에
- * 컴포넌트 스캔시 BoardController 클래스의 생성자를 스프링에서 호출하고 IOC컨테이너에 넣는다.
- * 
- * 컨트롤러 네이터베이스 접근과, 실제화면에 대한 접근을 처리해주는 코드만을 작성해야한다.
- * 데이터베이스에 대한 접근은(CRUD) DAO(Repository)클래스를  이용해서만 접근해야만 한다.
- * */
 @Controller
-//특정 url 경로로 요청이 왔을떄 특정 클래스 안에서 메서드를 찾게된다.
-//~~/board/board.do =>  BoardController안에 board.do 를 찾는다.
-@RequestMapping("/Todo")
+
+@RequestMapping("/todo")
 public class TodoController {
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    GoalRepository goalRepository;
+
+    @Autowired
+    FeedRepository feedRepository;
+
+    @Autowired
+    ServletContext servletContext;
+
+    @Autowired
+    FollowRepository followRepository;
+
+    @Autowired
+    DiaryRepository diaryRepository;
+
+    @Autowired
+    RoutineRepository routineRepository;
 
 
-	/**
-	 * @Autowired 어노테이션이 달린 필드나, setter메서드나, 생성자는
-	 * 해당하는 클래스를 IOC컨테이너에서 찾아 주입 (대입)한다.
-	 * IOC 컨테이너에 등록된 생성자의 타입을 이용해서 찾는다.
-	 * 
-	 * 이 단계를 의존성 주입(DI, Dependency Injection)이라고 한다.
-	 * BoardController 클래스는 BoardRepository 클래스에 의존하고 있는것.
-	 * 
-	 */
-	@Autowired
-	UserRepository userRepository;
-	
-	@Autowired
-	TodoTitleRepository todoTitleRepository;
-	
-	@Autowired
-	ServletContext servletContext;
-	
-	
-	/*
-	 * 메서드에 @RequestMapping 어노테이션이 달려있다면 value 속성에 넣은 url로 요청이 올 때,
-	 * method 속성에 맞는 http 요청이 올 때 해당 메서드를 실행한다.
-	 * ex) get요청으로 //board/board.do 요청이 온다면 아래의 board 메서드가 실행된다.
-	 * */
-	@RequestMapping(value="/TodoTitle.do",method=RequestMethod.GET)
-	public String TodoTitle(Model model,HttpServletRequest request,
-			//model 객체는 서블릿에서 request.setAttribute를 이용해
-			//특정 jsp로 포워딩 시 데이터를 넘겨주는것과 동일한 역할을 수행한다.
-			//스프링이 board 메서드를 실행할 때 메서드의 파라미터로 넣어준다.
-			
-			
-			//request.getParameter()외 동일한 역할을 수행한다.
-			//url 파라미터에서 name 속성의 값을 떠내오는 것
-			//name 속성의 값은 url로 요청이 오면 BoardController
-			
-			/*, @RequestParam(name="title", required=false) String title, @RequestParam(name="body", defaultValue="기본 본문") String body*/
-//			BucketListVO vo,
-//			@RequestParam(name="searchType", required=false) String searchType,
-//			@RequestParam(name="keyword", required=false) String keyword,
-//			 @RequestParam(name="page", required=false, defaultValue = "1") int page
-			TodoTitleVO tvo) {
-		
-		
-/*		BoardVO vo = new BoardVO();
-		vo.setBody(body);
-		vo.setTitle(title);*/
-//		
-//		Pageable pageable = PageRequest.of(page - 1 , 10); 
-		
-//		Page<BucketListVO> data = repository.getAllData(pageable,searchType,keyword);
-//		data.getContent();
-//		data.getTotalPages();
-		
-		
-		//특정 jsp 페이지로 포워딩될때 데이터를 넣어준다.
-		//데이터는 키-밸류 형식으로 넣어 주어야한다.
-		//아래는 "vo"라는 키에 게시글 데이터를 넣어준것
-//		model.addAttribute("vo" , data.getContent());
-//		model.addAttribute("currentPage" , page);
-//		model.addAttribute("totalPage" , data.getTotalPages());
-//		model.addAttribute("pageSize", 10);
-		
-		//RequestMapping 어노테이션이 달린 메서드가 문자열로 데이터를 반환한다면
-		//뷰 리졸버가 이를 가로채, 특정 jsp로 포워딩 시킨다.
-		// -> WEB-INF/view/board.jsp로 포워딩 된다.
-		return "TodoTitle";
-	} 
-	
+    @RequestMapping(value = "/feed.do", method = RequestMethod.GET)
+    public String feed(
+            Model model, FeedVO vo,
+            @SessionAttribute(name = "user") UserVO user,
+            @RequestParam(name = "email", required = false) String target_email
+    ) {
 
 
+        Calendar calendar = Calendar.getInstance();
+        // 현재 연도와 월 가져오기
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1; // 0~11, 0이 1월
 
-    @RequestMapping(value="TodoTitle.do", method=RequestMethod.POST)
-    public Map<String, String> TodoTitleOk(Model model, HttpServletRequest request, 
-            @RequestParam(name="todo-title-id", required=false, defaultValue="0") int todo_title_id,
-            @RequestParam(name="color-id", required=false, defaultValue="0") int color_id,
-            @RequestParam(name="email", required=false) String email,
-            @RequestParam(name="todo-title", required=false) String todo_title,
-            @RequestParam(name="title-todo-open", required=false, defaultValue="0") int title_todo_open) {
+        // 이메일과 해당 월의 날짜별 완료된 투두 개수 조회
+        List<Map<String, Object>> completedTodosPerDay = feedRepository.findCompletedTodosPerDay(user.getEmail(), year, month);
+        model.addAttribute("todoCount", completedTodosPerDay);
 
-        // 요청된 파라미터로 TodoTitleVO 객체 생성
-        TodoTitleVO tvo = new TodoTitleVO();
-        tvo.setTodo_title_id(todo_title_id);
-        tvo.setColor_id(color_id);
-        tvo.setEmail(email);  // email 설정 추가
-        tvo.setTodo_title(todo_title);
-        tvo.setTitle_todo_open(title_todo_open);
+        List<FeedVO> feedList = feedRepository.findByEmailAndToday(user.getEmail());
+        model.addAttribute("feedvo", feedList);
 
-        // 모든 데이터를 가져와서 첫 번째 항목을 사용
-        List<TodoTitleVO> allData = todoTitleRepository.getAllData();
-        TodoTitleVO savedTodoTitle = allData.isEmpty() ? new TodoTitleVO() : allData.get(0);
 
-        // 결과를 Map에 담아 반환
-        Map<String, String> result = new HashMap<>();
-        result.put("todoTitleId", String.valueOf(savedTodoTitle.getTodo_title_id()));
-        result.put("colorId", String.valueOf(savedTodoTitle.getColor_id()));
-        result.put("email", savedTodoTitle.getEmail());
-        result.put("todoTitle", savedTodoTitle.getTodo_title());
-        result.put("titleTodoOpen", String.valueOf(savedTodoTitle.getTitle_todo_open()));
+        List<GoalVO> goalList = goalRepository.getList(user.getEmail());
+        model.addAttribute("goalvo", goalList);
 
-        return result;
+        // 해당 달의 날짜 데이터의 정보
+        model.addAttribute("dateInfo", donutCalendarInfo());
+
+        // 팔로우 데이터 가져오기
+        List<FollowVO> followList = followRepository.getFollowing(user.getEmail());
+        model.addAttribute("followvo", followList);
+
+        String edit_date = "2024-07-25";
+
+        List<GoalVO> goalWithFeedDataList = goalRepository.getDataByEmailAndDate(user.getEmail(), edit_date);
+
+        List<Map<String, Object>> goalJsonList = new ArrayList<>(); // List<Map> 대신 List<Map<String, Object>> 사용
+        for (GoalVO goal : goalWithFeedDataList) {
+            Map<String, Object> goalMap = new HashMap<>();
+            goalMap.put("goal_id", goal.getTodoTitleId());
+            goalMap.put("goal_content", goal.getTodoTitle());
+            goalMap.put("goal_email", goal.getEmail());
+            goalMap.put("goal_openSetting", goal.getTitleTodoOpen());
+            goalMap.put("goal_colorCode", goal.getColorCode());
+            System.out.println("이것은 목표 색깔 코드: " + goal.getColorCode());
+
+            // goal_feedList에 여러 개의 피드를 담기 위한 리스트 생성
+            List<Map<String, Object>> feedJsonList = new ArrayList<>();
+            for (FeedVO feed : goal.getFeedList()) {
+                Map<String, Object> feedMap = getFeedMap(feed);
+                feedJsonList.add(feedMap);
+            }
+            goalMap.put("goal_feedList", feedJsonList); // 피드 리스트를 추가
+
+            goalJsonList.add(goalMap); // append 대신 add 사용
+        }
+
+        ObjectMapper mapper = new ObjectMapper();
+        String json = null;
+        try {
+            json = mapper.writeValueAsString(goalJsonList);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        model.addAttribute("goalJsonData", json);
+
+        return "feed";
     }
-}
-	
 
-	
-	
-//	@RequestMapping(value="/post.do", method=RequestMethod.GET)
-//	public String view(@RequestParam(name="sno", defaultValue="0") int sno, Model model) {
-//		
-////		BucketListVO vo = repository.selectOne(sno);
-//		model.addAttribute("vo", vo);
-//		
-//		
-//		return "view";
-//	}
-//		
-	
-	@RequestMapping(value="write.do", method=RequestMethod.GET)
-	public String write(HttpSession session) {
-		
-		return "write";
-	}
-	
-	
-	
-//	@RequestMapping(value="write.do", method=RequestMethod.POST)
-//	public String writeOk(
-//			//url로 요청온 파라미터가 특정 클래스 내에 존재하는 필드와 동일하다면 
-//			//클래스 타입으로 url 파라미터를 받을 수 있다.
-//			//ex) ?sno=2&title=제목&body=본문 ...과 같이 요청이 온다면
-//			//vo클래스에 해당 값을 setter 메서드를 이용해 호출하고 담아준다.
-//			BucketListVO vo,
-//			//여러개의 첨부파일을 갖기 위해서는 MultipartFile 설정을 한 후
-//			//컨트롤러 메서드의 파라미터로 첨부파일을 받을 수 있다.
-//			@RequestParam("file") MultipartFile[] files) {
-//		
+    private static Map<String, Object> getFeedMap(FeedVO feed) {
+        Map<String, Object> feedMap = new HashMap<>();
+        feedMap.put("todo_id", feed.getTodoId());
+        feedMap.put("todo_email", feed.getEmail());
+        feedMap.put("todo_content", feed.getTodoContent());
+        feedMap.put("todo_todoCheck", feed.getTodoCheck());
+        feedMap.put("todo_editDate", feed.getTodoEditDate());
+        feedMap.put("todo_memo", feed.getTodoMemo());
+        feedMap.put("todo_alarm", feed.getTodoAlarm());
+        feedMap.put("todo_image", feed.getTodoImage());
+        return feedMap;
+    }
+
+//    @RequestMapping(value = "/feed.do", method = RequestMethod.POST)
+//    public String feedOk(Model model, HttpServletRequest request,
+//                         FeedVO list) {
 //
-//		
-//		repository.insertOne(vo);
-//		int result = vo.getEmail();
-//		
-//		String uploadDir = servletContext.getRealPath("/upload/");
-//		File dir = new File(uploadDir);
-//		
-//		if(!dir.exists()) {
-//			dir.mkdirs();
-//		}
-//		
-//		List<TodoTitleVO> fileList = new ArrayList<TodoTitleVO>();
-//		
-//		for(MultipartFile file : files) {
-//			if(!file.isEmpty()) {
-//				String originFileName = file.getOriginalFilename();
-//				
-//				String uniqueFileName = UUID.randomUUID().toString() + "." + getFileExtention(originFileName);
-//				
-//				String filePath = uploadDir + uniqueFileName;
-//				
-//				try {
-//					file.transferTo(new File(filePath));
-//					TodoTitleVO fileVo = new TodoTitleVO();
-//					fileVo.setEmail(email);
-//					fileVo.setFileName(originFileName);
-//					fileVo.setFilePath(filePath);
-//					fileVo.setFileSize(file.getSize() + "");
-//					fileVo.setFileType(file.getContentType());
-//					fileList.add(fileVo);
-//					
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//				
-//			}
-//			
-//			
-//		}
-//		
-//		
-//		if(result >= 1) {
-//			if(fileList.size() != 0) {
-//				fileRepository.insert(fileList);
-//			}
-//			return "redirect:/board/post.do?sno=" + vo.getSno();
-//		}else {
-//			return "redirect:/board/board.do";
-//		}
-//			
-//		
-//	}
-//	
-//	
-//	@RequestMapping(value="/modify.do", method=RequestMethod.GET)
-//	public String modifyBoard(@RequestParam(name="sno", required=false, defaultValue="0") int sno, Model model) {
-//		
-//		BucketListVO vo = repository.selectOne(sno);
-//		model.addAttribute("vo", vo);
-//		
-//		return "modify";
-//	}
-//	
-//	
-//	@RequestMapping(value="/modify.do", method=RequestMethod.POST)
-//	public String modifyBoardOk(BucketListVO vo) {
-//		
-//		int result = repository.update(vo);
-//		
-//		if(result > 0) {
-//			return "redirect:/board/post.do?sno=" + vo.getSno();
-//		}else {
-//			return "redirect:board/board.do";
-//		}
-//		
-///*		System.out.println(vo.getSno());
-//		System.out.println(vo.getTitle());
-//		System.out.println(vo.getWriter());
-//		System.out.println(vo.getBody());*/
-//	}
-//	
-//
-//	@RequestMapping(value="delete.do", method=RequestMethod.POST)
-//	public String deleteBoard(@RequestParam(name="sno") int sno) {
-//		
-//		int result = repository.delete(sno);
-//		
-//		if(result > 0) {
-//			return "redirect:/board/board.do";
-//		}else {
-//			return "redirect:/board/post.do?sno=" + sno;
-//		}
-//	}
-//
-//	public String getFileExtention(String fileName) {
-//		int index = fileName.lastIndexOf(".");
-//		if(index == -1) {
-//			return "";
-//		}
-//		
-//		return fileName.substring(index + 1);
-//	}
-//	
-	
+////        int result = feedRepository.selectOne(vo);
+////
+////        if(result > 0) {
+////            return "redirect:/Todo/feed.do";
+////        }else {
+////            return "redirect:/Todo/feed.do";
+////        }
+//    }
+
+    @ResponseBody
+    @RequestMapping(value = "/donut_chart_count_change.do", method = RequestMethod.POST, produces = "application/json")
+    public Map<String, Object> donutDateChange(
+            Model model, FeedVO vo,
+            @SessionAttribute(name = "user") UserVO user
+    ) {
+
+        Calendar calendar = Calendar.getInstance();
+        // 현재 연도와 월 가져오기
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1; // 0~11, 0이 1월
+
+        // 이메일과 해당 월의 날짜별 완료된 투두 개수 조회
+        List<Map<String, Object>> completedTodosPerDay = feedRepository.findCompletedTodosPerDay(user.getEmail(), year, month);
+        model.addAttribute("todoCount", completedTodosPerDay);
+
+
+        // 해당 달의 날짜 데이터의 정보
+        model.addAttribute("dateInfo", donutCalendarInfo());
+
+
+        // 필요한 추가 데이터를 여기에 설정
+        Map<String, Object> response = new HashMap<>();
+        response.put("todoCount", completedTodosPerDay);
+        response.put("dateInfo", donutCalendarInfo());
+
+        return response;
+    }
+
+
+
+
+
+    @ResponseBody
+    @RequestMapping(value = "/donut_date_change.do", method = RequestMethod.POST, produces = "application/json")
+    public Map<String, Object> donutDateChange(
+            @SessionAttribute(name = "user") UserVO user,
+            @RequestParam(name = "todo_edit_date") String date
+    ) {
+        // 이메일과 오늘의 피드 목록을 가져오기
+        List<FeedVO> feedList = feedRepository.findByEmailAndEditDate(user.getEmail(), date);
+
+        // 이메일로 목표 목록 가져오기
+        List<GoalVO> goalList = goalRepository.getList(user.getEmail());
+
+
+        // 필요한 추가 데이터를 여기에 설정
+        Map<String, Object> response = new HashMap<>();
+        response.put("feedList", feedList);
+        response.put("goalList", goalList);
+        response.put("date", date); // 예시로 요청받은 날짜를 반환에 포함
+
+        // 필요에 따라 더 많은 데이터를 추가할 수 있습니다
+
+        return response;
+    }
+
+
+    @ResponseBody
+    @RequestMapping(value = "/new_todo_create.do", method = RequestMethod.POST, produces = "application/json")
+    public Map<String, Object> donutDateChange(
+            @SessionAttribute(name = "user") UserVO user,
+            @RequestBody FeedVO feedVO
+    ) {
+        feedVO.setEmail(user.getEmail());
+
+
+        // 이메일과 수정날짜를 기반으로 insert하고 성공유무를 반환해줌
+        int success_true = feedRepository.insertData(feedVO);
+
+
+        // 필요한 추가 데이터를 여기에 설정
+        Map<String, Object> response = new HashMap<>();
+        response.put("newTodoId", feedVO.getTodoId());
+        response.put("success", success_true);
+
+
+        return response;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "check_box_change.do", method = RequestMethod.POST, produces = "application/json")
+    public Map<String, Object> editCheckBox(
+            @SessionAttribute(name = "user") UserVO user,
+            @RequestBody FeedVO feedVO
+    ) {
+
+        System.out.println("체크박스의 투두 ID"+feedVO.getTodoId());
+        System.out.println("체크박스의 투두_체크박스_상태"+feedVO.getTodoCheck());
+
+        if (Objects.equals(feedVO.getTodoCheck(), "완료")) {
+            feedVO.setTodoCheck("미완료");
+        } else if (Objects.equals(feedVO.getTodoCheck(), "미완료")) {
+            feedVO.setTodoCheck("완료");
+        }
+
+        System.out.println("체크박스의 투두_체크박스_데이터 set이후"+feedVO.getTodoCheck());
+
+
+        int success_true = feedRepository.checkBoxChange(feedVO);
+        System.out.println(success_true+"체크박스 업데이트 결과 성공시 1을 반환");
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", success_true);
+
+        return response;
+    }
+
+
+
+    @ResponseBody
+    @RequestMapping(value = "delete_todo.do", method = RequestMethod.POST, produces = "application/json")
+    public Map<String, Object> editTodoContent(
+            @SessionAttribute(name = "user") UserVO user,
+            @RequestBody FeedVO feedVO
+    ) {
+        System.out.println("투두아이디: "+feedVO.getTodoId());
+
+
+        int success_true = feedRepository.deleteTodo(feedVO);
+        System.out.println("성공적으로 수정시 1 = "+success_true);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", success_true);
+
+        return response;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "selected_todo_anotherDay_move.do", method = RequestMethod.POST, produces = "application/json")
+    public Map<String, Object> selectedTodoAnotherDayMove(
+            @SessionAttribute(name = "user") UserVO user,
+            @RequestBody FeedVO feedVO
+    ) {
+        System.out.println("투두아이디: "+feedVO.getTodoId());
+        System.out.println("투두_수정날짜: "+feedVO.getTodoEditDate());
+
+        int success_true = feedRepository.selectedTodoAnotherDayMove(feedVO);
+        System.out.println("성공적으로 수정시 1 = "+success_true);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", success_true);
+
+        return response;
+    }
+
+
+
+
+    @ResponseBody
+    @RequestMapping(value = "edit_todo_content.do", method = RequestMethod.POST, produces = "application/json")
+    public Map<String, Object> delete_todo(
+            @SessionAttribute(name = "user") UserVO user,
+            @RequestBody FeedVO feedVO
+    ) {
+        System.out.println("투두아이디: "+feedVO.getTodoId());
+
+
+        int success_true = feedRepository.deleteTodo(feedVO);
+        System.out.println("성공적으로 수정시 1 = "+success_true);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", success_true);
+
+        return response;
+    }
+
+
+
+
+    @RequestMapping(value = "/routine.do", method = RequestMethod.GET)
+    public String routine(Model model, RoutineVO vo, GoalVO gvo) {
+
+        List<RoutineVO> routinelist = routineRepository.getAllData(vo);
+        List<GoalVO> goalList = goalRepository.getAllData(gvo);
+        System.out.println(vo);
+        System.out.println(routinelist);
+        model.addAttribute("routinevo", routinelist);
+        model.addAttribute("goalvo", goalList);
+
+        return "routine";
+    }
+
+
+    public Map<String, Object> donutCalendarInfo() {
+        // 현재 날짜로 캘린더 객체 생성
+        Calendar calendar = Calendar.getInstance();
+
+        // 현재 연도와 월 가져오기
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1; // 0~11로 반환되므로 1을 더해 1~12로 변환
+        int today = calendar.get(Calendar.DATE); // 현재 날짜
+
+        // 현재 월의 첫 번째 날짜로 설정
+        calendar.set(year, calendar.get(Calendar.MONTH), 1);
+
+        // 해당 월의 첫 번째 날짜의 요일 가져오기 (1: 일요일, 2: 월요일, ...)
+        int firstDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+
+        // 해당 월의 마지막 날짜 가져오기
+        int lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+        // 캘린더 정보 맵 생성
+        Map<String, Object> calendarMap = new HashMap<>();
+        calendarMap.put("year", String.format("%04d", year)); // 연도는 4자리로 포맷팅
+        calendarMap.put("month", String.format("%02d", month)); // 월을 두 자리로 포맷팅
+        calendarMap.put("firstDayOfWeek", firstDayOfWeek);
+        calendarMap.put("lastDay", String.format("%02d", lastDay)); // 마지막 날짜를 두 자리로 포맷팅
+        calendarMap.put("today", String.format("%02d", today)); // 오늘 날짜를 두 자리로 포맷팅
+
+        return calendarMap;
+    }
+
+
 }

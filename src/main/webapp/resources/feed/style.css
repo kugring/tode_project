@@ -1,4 +1,4 @@
-* {
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -23,8 +23,8 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: end;
     align-items: center;
-    justify-content: space-between;
     text-align: center;
     font-size: 10px;
     color: #898989;
@@ -41,18 +41,18 @@ body {
 }
 
 .feed-contents {
-    align-self: stretch;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
+    align-items: flex-start;
+    align-self: stretch;
     gap: 24px;
 }
 
 
 .feed-top {
-    align-self: stretch;
     display: flex;
+    align-self: stretch;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
@@ -114,10 +114,10 @@ body {
 }
 
 .feed-bottom {
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
     text-align: left;
     font-size: 13px;
     color: #000;
@@ -133,22 +133,22 @@ body {
 }
 
 .profile-box {
-    width: 100%;
-    height: 55.2px;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 55.2px;
     gap: 12px;
     font-size: 16px;
 }
 
 .user-profile-text {
-    width: 235px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
+    align-items: flex-start;
+    width: 235px;
     gap: 7px;
 }
 
@@ -227,24 +227,27 @@ body {
 }
 
 .week-days {
-    width: 364px;
+    width: 365px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 0px 8px;
-    box-sizing: border-box;
+    padding: 0 8px;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .calendar-date {
-    width: 364px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
     justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 364px;
     gap: 12px 28px;
+
+    flex-wrap: wrap;
+
     text-align: center;
     font-size: 13px;
     color: #000;
@@ -255,7 +258,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
 }
 
 .date-item:hover {
@@ -268,7 +271,7 @@ body {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background: conic-gradient(hsl(236, 100%, 73%) 0% 20%, transparent 0.01%);
+    background: conic-gradient(hsl(236, 100%, 73%) 0% 0%, transparent 0.01%);
     transition: background 1s ease;
 
     /* 70% 채움 */
@@ -295,7 +298,20 @@ body {
     border-radius: 50%;
     transform: translate(-50%, -50%);
 }
+.date-num{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    width: 22px;
+    height: 18px;
+}
+
+.selected>.date-num{
+    background-color: #757EFFFF;
+    border-radius: 4px;
+    color: white;
+}
 
 
 /*   ########################################################################################################################################   */
@@ -452,7 +468,7 @@ body {
     color: rgba(0, 0, 0, 0.8);
 }
 
-.total-todo-more-buttom {
+.total-todo-more-button {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -474,6 +490,9 @@ body {
 
 
 .feed-footer {
+    position: fixed;
+    bottom: 0;
+    left: calc(50% - 200px);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -604,7 +623,7 @@ body {
     gap: 25px;
 }
 
-.todo-item-edite-icon {
+.todo-item-edit-icon {
     width: 48px;
     display: flex;
     flex-direction: column;
@@ -1345,6 +1364,11 @@ d todo-memo-modal은 원래 위치에 잘 있고 height값은 따로 가지고 �
     height: 32px;
     letter-spacing: -0.02em;
     border-radius: 7px;
+}
+
+.empty-data-item{
+    width: 28px;
+    height: 52px;
 }
 
 .todo-date-item:hover {
