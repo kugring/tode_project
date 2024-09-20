@@ -39,7 +39,7 @@
 <br>
 
 ## 💻 개발환경
-- **Version** : 17.0.10
+- **Version** : java 17.0.10
 - **IDE** : intelliJ 2023.3.4
 - **Framework** : Spring 5.2.3
 - **ORM** : Mybatis
