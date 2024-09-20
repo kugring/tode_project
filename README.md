@@ -1,4 +1,14 @@
-## 👨‍🏫 프로젝트 소개
+<div style="display: flex; flex-direction:row;">
+    <h2>👨‍🏫 프로젝트 소개
+            <img src="https://img.shields.io/badge/django-092E20?style=flat&logo=django&logoColor=white" alt="Django">
+            <img src="https://img.shields.io/badge/python-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
+            <img src="https://img.shields.io/badge/jquery-0769AD?style=flat&logo=jquery&logoColor=white" alt="jQuery">
+            <img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript">
+            <img src="https://img.shields.io/badge/css-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS">
+    </h2>
+
+</div>
+
 사용자에게 편리한 UI/UX를 제공하는것에 초점을 둔 프로젝트 <br>
 특히 [ 날짜 , TODO_주제 ]을 편집이 손쉽게 이루어질 수 있도록 집중
 
