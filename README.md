@@ -75,5 +75,5 @@
 
 
 ## ✒️ Figma
-- TODO: [Figma 프로토타입 보기](https://www.figma.com/proto/tMgkRWVhFeoeY46mDktsQ2/%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4?node-id=215-1225/)
+- TODO :  [ Figma 프로토타입 보기 ](https://www.figma.com/proto/tMgkRWVhFeoeY46mDktsQ2/%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4?node-id=215-1225/)
 
